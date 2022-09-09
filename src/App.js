@@ -44,7 +44,7 @@ function App() {
           </div>
         </div>
         <div className="theme-toggle">
-          <h2>Light Theme</h2>
+          <h2>{theme === "light" ? "Dark Theme" : "Light Theme"}</h2>
           <i onClick={switchTheme} className="fas fa-toggle-on"></i>
         </div>
       </div>
