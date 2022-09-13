@@ -1,9 +1,10 @@
 import React from "react";
 import useLocalStorage from "use-local-storage";
 import "./index.css";
-import { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "./context/AuthProvider";
+import { useRef, useState, useEffect } from "react";
+// import AuthContext from "./context/AuthProvider";
 // import axios from "./api/axios";
+import { Link } from "react-router-dom";
 
 // const LOGIN_URL = "/auth";
 
@@ -76,7 +77,7 @@ const Login = () => {
             <p> 로그인에 성공했습니다!</p>
             <br />
             <p>
-              <a href="#">메인으로 이동!</a>
+              <Link to="/">메인으로 이동!</Link>
             </p>
           </section>
         ) : (
@@ -121,9 +122,10 @@ const Login = () => {
               <p>Forger your password?</p>
               <a href="/">Reset Password</a>
             </div>
-            <a href="#" className="create">
+
+            <Link to="/join" className="create">
               Create Account
-            </a>
+            </Link>
 
             <p className="divider">
               <span>Or</span>

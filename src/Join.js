@@ -1,6 +1,7 @@
 import React from "react";
 import useLocalStorage from "use-local-storage";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const Join = () => {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
@@ -32,6 +33,10 @@ const Join = () => {
             />
             <button> Join </button>
           </form>
+
+          <Link to="/" className="create">
+            로그인하러 가기!
+          </Link>
         </p>
 
         <div className="theme-toggle">
