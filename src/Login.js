@@ -1,9 +1,14 @@
 import React from "react";
 import useLocalStorage from "use-local-storage";
 import "./index.css";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
+import AuthContext from "./context/AuthProvider";
+// import axios from "./api/axios";
+
+// const LOGIN_URL = "/auth";
 
 const Login = () => {
+  //   const { setAuth } = useContext(AuthContext);
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
 
   const switchTheme = () => {
@@ -29,10 +34,36 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user, pwd);
+
+    // try {
+    //   const response = await axios.post(
+    //     LOGIN_URL,
+    //     JSON.stringify({ user, pwd }),
+    //     {
+    //       headers: { "Content-Type": "application/json" },
+    //       withCredentials: true,
+    //     }
+    //   );
+    //   console.log(JSON.stringify(response?.data));
+    //   //console.log(JSON.stringify(response));
+    //   const accessToken = response?.data?.accessToken;
+    //   const roles = response?.data?.roles;
+    //   setAuth({ user, pwd, roles, accessToken });
     setUser("");
     setPwd("");
     setSuccess(true);
+    // } catch (err) {
+    //   if (!err?.response) {
+    //     setErrMsg("No server Response");
+    //   } else if (err.response?.status === 400) {
+    //     setErrMsg("Missing E-mail or Password");
+    //   } else if (err.response?.status === 401) {
+    //     setErrMsg("Unauthorized");
+    //   } else {
+    //     setErrMsg("로그인에 실패했습니다");
+    //   }
+    //   errRef.current.focus();
+    // }
   };
 
   return (
@@ -90,7 +121,9 @@ const Login = () => {
               <p>Forger your password?</p>
               <a href="/">Reset Password</a>
             </div>
-            <p className="create">Create Account</p>
+            <a href="#" className="create">
+              Create Account
+            </a>
 
             <p className="divider">
               <span>Or</span>
